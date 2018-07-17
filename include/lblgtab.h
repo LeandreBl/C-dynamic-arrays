@@ -5,8 +5,8 @@
 ** generic C arrays
 */
 
-#ifndef LBL_GTAB_H_
-# define LBL_GTAB_H_
+#ifndef _LBL_GTAB_H
+# define _LBL_GTAB_H
 
 # include <stddef.h>
 
@@ -33,4 +33,4 @@ int gtab_copy(const gtab_t *src, gtab_t *dest, void *(*copier)(void *),
 int gtab_sappend(gtab_t *gtab, const void *add);
 int gtab_sappend_at(gtab_t *gtab, const void *add, size_t pos);
 
-#endif /* !LBL_GTAB_H_ */
+#endif /* !_LBL_GTAB_H */

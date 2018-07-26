@@ -9,8 +9,6 @@ NAME		= liblblgtab.so
 
 CC		= gcc
 
-LIBS		=
-
 SRCS		= src/gtab.c
 SRCS		+= src/resize.c
 SRCS		+= src/append.c
@@ -22,11 +20,11 @@ SRCS		+= src/swap.c
 SRCS		+= src/copy.c
 SRCS		+= src/sappend.c
 
-TESTS_SRCS := $(SRCS)
-TESTS_SRCS += tests/gtab_tests.c
+TESTS_SRCS	:= $(SRCS)
+TESTS_SRCS	+= tests/gtab_tests.c
 
 OBJS		= $(SRCS:.c=.o)
-TESTS_OBJS = $(TESTS_SRCS:.c=.o)
+TESTS_OBJS	= $(TESTS_SRCS:.c=.o)
 
 RM		= rm -f
 

@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-#include "lblgtab.h"
+#include "lgtab.h"
 
 int gtab_resize(gtab_t *gtab, size_t newsize, void (* ifct)(void *))
 {

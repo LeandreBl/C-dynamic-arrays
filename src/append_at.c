@@ -5,7 +5,7 @@
 ** append at
 */
 
-#include "lblgtab.h"
+#include "lgtab.h"
 
 int gtab_append_at(gtab_t *gtab, const void *add, size_t index)
 {

@@ -7,7 +7,7 @@
 
 #include <stdbool.h>
 
-#include "lblgtab.h"
+#include "lgtab.h"
 
 static bool already_in(gtab_t *gtab, const void *add)
 {

@@ -5,7 +5,7 @@
 ** swap
 */
 
-#include "lblgtab.h"
+#include "lgtab.h"
 
 void gtab_swap(gtab_t *gtab, size_t p1, size_t p2)
 {

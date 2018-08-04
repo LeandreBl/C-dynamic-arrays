@@ -5,7 +5,7 @@
 ** remove
 */
 
-#include "lblgtab.h"
+#include "lgtab.h"
 
 void gtab_remove(gtab_t *gtab, void *ptr, void (* ifct)(void *))
 {

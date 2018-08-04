@@ -5,7 +5,7 @@
 ** copy
 */
 
-#include "lblgtab.h"
+#include "lgtab.h"
 
 static int use_copier(const gtab_t *src, gtab_t *dest,
 		void *(*copier)(void *), const void *errval)

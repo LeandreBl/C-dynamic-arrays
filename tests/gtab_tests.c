@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "lblgtab.h"
+#include "lgtab.h"
 
 Test(gtab_create, various_tests)
 {

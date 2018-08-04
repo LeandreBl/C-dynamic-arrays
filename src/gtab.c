@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-#include "lblgtab.h"
+#include "lgtab.h"
 
 int gtab_create(gtab_t *gtab, size_t nsize)
 {

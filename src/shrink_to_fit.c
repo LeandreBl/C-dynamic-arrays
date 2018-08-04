@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-#include "lblgtab.h"
+#include "lgtab.h"
 
 int gtab_shrink_to_fit(gtab_t *gtab)
 {

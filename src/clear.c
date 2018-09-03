@@ -2,5 +2,8 @@
 
 void gtab_clear(gtab_t *gtab, void (* destructor)(void *))
 {
-	gtab_resize(gtab, 0, destructor);
+	if (destructor != NULL)
+	 for (size_t i = 0; i < gtab->len; ++i)
+		 destructor(gtab->i[i]);
+	gtab->len = 0;
 }

@@ -208,3 +208,15 @@ Test(gtab_sappend, various_tests)
 	cr_assert(gtab_sappend(&tab, (void *)21) == -1);
 	gtab_destroy(&tab, NULL);
 }
+
+Test(gtab_clear, simple_clear)
+{
+	gtab_t tab;
+
+	gtab_create(&tab, 5);
+
+	for (size_t i = 0; i < 10; ++i)
+		gtab_append(&tab, strdup("toto"));
+	gtab_clear(&tab, free);
+	cr_assert(tab.len == 0);
+}

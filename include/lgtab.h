@@ -34,6 +34,7 @@ int gtab_copy(const gtab_t *src, gtab_t *dest, void *(*copier)(void *),
 		const void *errval);
 int gtab_sappend(gtab_t *gtab, const void *add);
 int gtab_sappend_at(gtab_t *gtab, const void *add, size_t pos);
+int gtab_clear(gtab_t *gtab, void (* destructor)(void *));
 
 int gtab_lock(gtab_t *gtab);
 int gtab_unlock(gtab_t *gtab);

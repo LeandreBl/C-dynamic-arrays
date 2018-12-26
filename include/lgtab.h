@@ -16,8 +16,8 @@
 typedef struct lblgtab_s {
 	size_t max_size;
 	size_t len;
-	pthread_mutex_t *lock;
 	void **i;
+	pthread_mutex_t lock;
 } gtab_t;
 
 int gtab_create(gtab_t *gtab, size_t nsize);

@@ -9,7 +9,7 @@
 
 void gtab_remove(gtab_t *gtab, void *ptr, void (*ifct)(void *))
 {
-    for (size_t i = 0; i < gtab->len; ++i)
-        if (gtab->i[i] == ptr)
-            gtab_remove_at(gtab, i, ifct);
+  for (size_t i = 0; i < gtab->len; ++i)
+    if (gtab->i[i] == ptr)
+      gtab_remove_at(gtab, i, ifct);
 }

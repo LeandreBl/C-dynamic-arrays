@@ -10,6 +10,7 @@
 
 # include <pthread.h>
 # include <stddef.h>
+# include <sys/cdefs.h>
 
 # define GTAB_REALLOC_SIZE (5)
 
@@ -20,27 +21,27 @@ typedef struct lblgtab_s {
 	pthread_mutex_t lock;
 } gtab_t;
 
-int gtab_create(gtab_t *gtab, size_t nsize);
-void gtab_destroy(gtab_t *gtab, void (* ifct)(void *));
+int gtab_create(gtab_t *gtab, size_t nsize) __THROW __nonnull((1));
+void gtab_destroy(gtab_t *gtab, void (* ifct)(void *)) __THROW __nonnull((1));
 
-int gtab_resize(gtab_t *gtab, size_t newsize, void (* destructor)(void *));
-void gtab_clear(gtab_t *gtab, void (* destructor)(void *));
+int gtab_resize(gtab_t *gtab, size_t newsize, void (* destructor)(void *)) __THROW __nonnull((1));
+void gtab_clear(gtab_t *gtab, void (* destructor)(void *)) __THROW __nonnull((1));
 
-int gtab_append(gtab_t *gtab, const void *add);
-int gtab_append_at(gtab_t *gtab, const void *add, size_t index);
+int gtab_append(gtab_t *gtab, const void *add) __THROW __nonnull((1));
+int gtab_append_at(gtab_t *gtab, const void *add, size_t index) __THROW __nonnull((1));
 
-void gtab_remove(gtab_t *gtab, void *remove, void (* destructor)(void *));
-void gtab_remove_at(gtab_t *gtab, size_t index, void (* destructor)(void *));
+void gtab_remove(gtab_t *gtab, void *remove, void (* destructor)(void *)) __THROW __nonnull((1));
+void gtab_remove_at(gtab_t *gtab, size_t index, void (* destructor)(void *)) __THROW __nonnull((1));
 
-int gtab_shrink_to_fit(gtab_t *gtab);
-void gtab_swap(gtab_t *gtab, size_t p1, size_t p2);
+int gtab_shrink_to_fit(gtab_t *gtab) __THROW __nonnull((1));
+void gtab_swap(gtab_t *gtab, size_t p1, size_t p2) __THROW __nonnull((1));
 int gtab_copy(const gtab_t *src, gtab_t *dest, void *(*copier)(void *),
-		const void *errval);
+		const void *errval) __THROW __nonnull((1, 2));
 
-int gtab_sappend(gtab_t *gtab, const void *add);
-int gtab_sappend_at(gtab_t *gtab, const void *add, size_t pos);
+int gtab_sappend(gtab_t *gtab, const void *add) __THROW __nonnull((1));
+int gtab_sappend_at(gtab_t *gtab, const void *add, size_t pos) __THROW __nonnull((1));
 
-int gtab_lock(gtab_t *gtab);
-int gtab_unlock(gtab_t *gtab);
+int gtab_lock(gtab_t *gtab) __THROW __nonnull((1));
+int gtab_unlock(gtab_t *gtab) __THROW __nonnull((1));
 
 #endif /* !_LBL_GTAB_H */

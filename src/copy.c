@@ -7,8 +7,7 @@
 
 #include "lgtab.h"
 
-static int use_copier(const gtab_t *src, gtab_t *dest, void *(*copier)(void *),
-                      const void *errval)
+static int use_copier(const gtab_t *src, gtab_t *dest, void *(*copier)(void *), const void *errval)
 {
   for (size_t i = 0; i < src->len; ++i) {
     dest->i[i] = copier(src->i[i]);
@@ -24,8 +23,7 @@ static void no_copier(const gtab_t *src, gtab_t *dest)
     dest->i[i] = src->i[i];
 }
 
-int gtab_copy(const gtab_t *src, gtab_t *dest, void *(*copier)(void *),
-              const void *errval)
+int gtab_copy(const gtab_t *src, gtab_t *dest, void *(*copier)(void *), const void *errval)
 {
   if (gtab_create(dest, src->max_size) == -1)
     return (-1);

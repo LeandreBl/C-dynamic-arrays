@@ -16,7 +16,6 @@ int gtab_create(gtab_t *gtab, size_t nsize)
     return (-1);
   gtab->max_size = nsize;
   gtab->len = 0;
-  gtab->lock = (pthread_mutex_t)PTHREAD_MUTEX_INITIALIZER;
   return (0);
 }
 

@@ -13,7 +13,6 @@ ARCHIVER	= ar
 
 SRCS		= src/gtab.c
 SRCS		+= src/clear.c
-SRCS		+= src/lock.c
 SRCS		+= src/resize.c
 SRCS		+= src/append.c
 SRCS		+= src/append_at.c

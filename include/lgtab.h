@@ -18,7 +18,6 @@ typedef struct lblgtab_s {
 	size_t max_size;
 	size_t len;
 	void **i;
-	pthread_mutex_t lock;
 } gtab_t;
 
 int gtab_create(gtab_t *gtab, size_t nsize) __THROW __nonnull((1));
@@ -40,8 +39,5 @@ int gtab_copy(const gtab_t *src, gtab_t *dest, void *(*copier)(void *),
 
 int gtab_sappend(gtab_t *gtab, const void *add) __THROW __nonnull((1));
 int gtab_sappend_at(gtab_t *gtab, const void *add, size_t pos) __THROW __nonnull((1));
-
-int gtab_lock(gtab_t *gtab) __THROW __nonnull((1));
-int gtab_unlock(gtab_t *gtab) __THROW __nonnull((1));
 
 #endif /* !_LBL_GTAB_H */

@@ -1,9 +1,9 @@
 #include "lgtab.h"
 
-void gtab_clear(gtab_t *gtab, void (*destructor)(void *))
+void gtab_clear(gtab_t *gtab)
 {
-  if (destructor != NULL)
+  if (gtab->destructor != NULL)
     for (size_t i = 0; i < gtab->len; ++i)
-      destructor(gtab->i[i]);
+      gtab->destructor(gtab->i[i]);
   gtab->len = 0;
 }

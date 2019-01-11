@@ -25,12 +25,11 @@ static void no_copier(const gtab_t *src, gtab_t *dest)
 
 int gtab_copy(const gtab_t *src, gtab_t *dest, void *(*copier)(void *), const void *errval)
 {
-  if (gtab_create(dest, src->max_size) == -1)
+  if (gtab_create(dest, src->max_size, src->destructor) == -1)
     return (-1);
   dest->len = src->len;
   if (copier != NULL)
     return (use_copier(src, dest, copier, errval));
-  else
-    no_copier(src, dest);
+  no_copier(src, dest);
   return (0);
 }

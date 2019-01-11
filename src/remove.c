@@ -7,9 +7,11 @@
 
 #include "lgtab.h"
 
-void gtab_remove(gtab_t *gtab, void *ptr, void (*ifct)(void *))
+void gtab_remove(gtab_t *gtab, void *ptr)
 {
   for (size_t i = 0; i < gtab->len; ++i)
-    if (gtab->i[i] == ptr)
-      gtab_remove_at(gtab, i, ifct);
+    if (gtab->i[i] == ptr) {
+      gtab_remove_at(gtab, i);
+      return;
+    }
 }

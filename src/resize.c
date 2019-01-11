@@ -9,12 +9,12 @@
 
 #include "lgtab.h"
 
-int gtab_resize(gtab_t *gtab, size_t newsize, void (*ifct)(void *))
+int gtab_resize(gtab_t *gtab, size_t newsize)
 {
   if (newsize == gtab->max_size)
     return (0);
   for (size_t i = newsize; i < gtab->len; ++i)
-    ifct(gtab->i[i]);
+    gtab->destructor(gtab->i[i]);
   gtab->max_size = newsize;
   if (newsize < gtab->len)
     gtab->len = newsize;

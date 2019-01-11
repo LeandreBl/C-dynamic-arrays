@@ -18,19 +18,20 @@ typedef struct lblgtab_s {
 	size_t max_size;
 	size_t len;
 	void **i;
+  void (* destructor)(void *);
 } gtab_t;
 
-int gtab_create(gtab_t *gtab, size_t nsize) __THROW __nonnull((1));
-void gtab_destroy(gtab_t *gtab, void (* ifct)(void *)) __THROW __nonnull((1));
+int gtab_create(gtab_t *gtab, size_t nsize, void (* destructor)(void *)) __THROW __nonnull((1));
+void gtab_destroy(gtab_t *gtab) __THROW __nonnull((1));
 
-int gtab_resize(gtab_t *gtab, size_t newsize, void (* destructor)(void *)) __THROW __nonnull((1));
-void gtab_clear(gtab_t *gtab, void (* destructor)(void *)) __THROW __nonnull((1));
+int gtab_resize(gtab_t *gtab, size_t newsize) __THROW __nonnull((1));
+void gtab_clear(gtab_t *gtab) __THROW __nonnull((1));
 
 int gtab_append(gtab_t *gtab, const void *add) __THROW __nonnull((1));
 int gtab_append_at(gtab_t *gtab, const void *add, size_t index) __THROW __nonnull((1));
 
-void gtab_remove(gtab_t *gtab, void *remove, void (* destructor)(void *)) __THROW __nonnull((1));
-void gtab_remove_at(gtab_t *gtab, size_t index, void (* destructor)(void *)) __THROW __nonnull((1));
+void gtab_remove(gtab_t *gtab, void *remove) __THROW __nonnull((1));
+void gtab_remove_at(gtab_t *gtab, size_t index) __THROW __nonnull((1));
 
 int gtab_shrink_to_fit(gtab_t *gtab) __THROW __nonnull((1));
 void gtab_swap(gtab_t *gtab, size_t p1, size_t p2) __THROW __nonnull((1));

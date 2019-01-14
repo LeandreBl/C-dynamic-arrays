@@ -9,7 +9,7 @@
 
 #include "lgtab.h"
 
-int gtab_create(gtab_t *gtab, size_t nsize, void (* destructor)(void *))
+int gtab_create(gtab_t *gtab, size_t nsize, void (*destructor)(void *))
 {
   gtab->i = malloc(nsize * sizeof(void *));
   if (gtab->i == NULL)

@@ -129,7 +129,7 @@ Test(gtab_remove_at, various_tests)
 
 	gtab_create(&tab, 0, NULL);
 	for (size_t i = 0; i < 100; ++i)
-	 gtab_append(&tab, (void *)i);
+		gtab_append(&tab, (void *)i);
 	gtab_remove_at(&tab, 78);
 	gtab_remove_at(&tab, 21);
 	gtab_remove_at(&tab, 0);
@@ -219,5 +219,5 @@ Test(gtab_clear, simple_clear)
 		gtab_append(&tab, strdup("toto"));
 	gtab_clear(&tab);
 	cr_assert(tab.len == 0);
-  gtab_destroy(&tab);
+	gtab_destroy(&tab);
 }

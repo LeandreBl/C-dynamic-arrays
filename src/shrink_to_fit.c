@@ -11,11 +11,11 @@
 
 int gtab_shrink_to_fit(gtab_t *gtab)
 {
-  if (gtab->len != gtab->max_size) {
-    gtab->max_size = gtab->len;
-    gtab->i = realloc(gtab->i, gtab->len * sizeof(void *));
-    if (gtab->i == NULL)
-      return (-1);
-  }
-  return (0);
+	if (gtab->len != gtab->max_size) {
+		gtab->max_size = gtab->len;
+		gtab->i = realloc(gtab->i, gtab->len * sizeof(void *));
+		if (gtab->i == NULL)
+			return (-1);
+	}
+	return (0);
 }
